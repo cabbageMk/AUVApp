@@ -1,7 +1,6 @@
-package com.zzz.auvapp.ui
+package com.zzz.auvapp.ui.main
 
 import android.annotation.SuppressLint
-import android.view.Gravity
 import com.zzz.auvapp.R
 import com.zzz.auvapp.databinding.ActivityMainBinding
 import com.zzz.common.mvvm.BaseVMActivity

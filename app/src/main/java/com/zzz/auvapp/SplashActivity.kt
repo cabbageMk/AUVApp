@@ -7,7 +7,7 @@ import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import androidx.appcompat.app.AppCompatActivity
 import com.zzz.auvapp.databinding.ActivitySplashBinding
-import com.zzz.auvapp.ui.MainActivity
+import com.zzz.auvapp.ui.main.MainActivity
 import kotlinx.coroutines.*
 
 /**
