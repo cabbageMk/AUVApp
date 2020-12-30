@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="@dimen/dp_19"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_logo_black_76dp"
+        app:civ_border_color="#cdcdcd"
+        app:civ_border_width="1dp"
+        app:civ_circle_background_color="@color/gray" />
+
+    <TextView
+        android:id="@+id/tvLoginTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:text="@string/guide_login_tips"
+        android:textSize="12sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/viewVerticalLine"
+            android:layout_width="1px"
+            android:layout_height="26dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:background="@color/grayDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFavorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_favorite_border_black_20dp"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="@string/favorites"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewVerticalLine"
+            app:layout_constraintEnd_toStartOf="@+id/viewVerticalLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewVerticalLine" />
+
+        <TextView
+            android:id="@+id/tvCache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_cache_black_16dp"
+            android:drawablePadding="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/cache"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewVerticalLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewVerticalLine"
+            app:layout_constraintTop_toTopOf="@+id/viewVerticalLine" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/viewHorizontalLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="19dp"
+        android:background="@color/grayDark" />
+
+</LinearLayout>

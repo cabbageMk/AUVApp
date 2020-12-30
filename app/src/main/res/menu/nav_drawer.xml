@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/drawer_mune_1"
+        android:title="@string/my_follow" />
+
+    <item
+        android:id="@+id/drawer_mune_2"
+        android:title="@string/watch_record" />
+
+    <item
+        android:id="@+id/drawer_mune_3"
+        android:title="@string/notification_toggle" />
+
+    <item
+        android:id="@+id/drawer_mune_4"
+        android:title="@string/my_badge" />
+
+    <item
+        android:id="@+id/drawer_mune_5"
+        android:title="@string/feedback" />
+
+    <item
+        android:id="@+id/drawer_mune_6"
+        android:title="@string/want_contribute" />
+</menu>
