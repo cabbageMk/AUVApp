@@ -1,4 +1,4 @@
-package com.zzz.auvapp.logic
+package com.zzz.auvapp.logic.model
 
 import com.flyco.tablayout.listener.CustomTabEntity
 

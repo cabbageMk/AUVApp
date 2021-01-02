@@ -4,7 +4,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.zzz.auvapp.R
-import com.zzz.auvapp.logic.TabEntity
+import com.zzz.auvapp.logic.model.TabEntity
 import com.zzz.auvapp.ui.BaseViewPagerFragment
 import com.zzz.common.BaseApp
 

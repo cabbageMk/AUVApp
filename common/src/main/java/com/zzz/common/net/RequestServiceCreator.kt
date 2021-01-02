@@ -21,11 +21,11 @@ import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
 object RequestServiceCreator {
-    private const val BASE_URL = "http://baobab.kaiyanapp.com/"
+    const val BASE_URL = "http://baobab.kaiyanapp.com/"
 
     private val TAG = RequestServiceCreator::class.java.simpleName
 
-    val mRetrofit: Retrofit
+    private val mRetrofit: Retrofit
 
     private var httpLoggingInterceptor: HttpLoggingInterceptor
 
@@ -66,7 +66,7 @@ object RequestServiceCreator {
             .build()
     }
 
-    inline fun <reified T> create(): T = mRetrofit.create(T::class.java)
+    fun <T> create(serviceClass: Class<T>) = mRetrofit.create(serviceClass)
 
     suspend fun <T> Call<T>.await(): T {
         return suspendCoroutine {

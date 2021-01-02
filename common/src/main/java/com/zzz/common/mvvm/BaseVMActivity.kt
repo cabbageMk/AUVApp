@@ -40,9 +40,9 @@ abstract class BaseVMActivity : AppCompatActivity() {
         weakRefActivity = WeakReference(this)
         ActivityUtil.addActivity(weakRefActivity)
 
-        openObserve()
         initView()
         initData()
+        openObserve()
     }
 
     abstract fun openObserve()

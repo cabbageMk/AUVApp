@@ -45,9 +45,9 @@ abstract class BaseVMFragment<T : ViewDataBinding>(@LayoutRes val contentLayoutI
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        openObserve()
         initView()
         initData()
+        openObserve()
     }
 
     abstract fun openObserve()

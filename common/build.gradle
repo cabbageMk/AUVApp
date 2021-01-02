@@ -88,4 +88,7 @@ dependencies {
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     // tablayout
     api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
+    api 'com.scwang.smart:refresh-header-material:2.0.0'
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.0'
 }
