@@ -17,13 +17,14 @@
     <!--适配华为（huawei）刘海屏-->
     <meta-data
         android:name="android.notch_support"
-        android:value="true"/>
+        android:value="true" />
     <!--适配小米（xiaomi）刘海屏-->
     <meta-data
         android:name="notch.config"
         android:value="portrait|landscape" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
