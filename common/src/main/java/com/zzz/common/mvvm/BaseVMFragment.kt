@@ -24,6 +24,9 @@ import com.zzz.common.base.LoadingView
  */
 abstract class BaseVMFragment<T : ViewDataBinding>(@LayoutRes val contentLayoutId: Int) :
     Fragment(contentLayoutId) {
+
+    private var isLoaded = false
+
     lateinit var binding: T
 
     protected fun <T : ViewDataBinding> binding(
@@ -45,9 +48,24 @@ abstract class BaseVMFragment<T : ViewDataBinding>(@LayoutRes val contentLayoutI
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        initView()
-        initData()
-        openObserve()
+
+    }
+
+    // 实现懒加载
+    override fun onResume() {
+        super.onResume()
+        //增加了Fragment是否可见的判断
+        if (!isLoaded && !isHidden) {
+            initView()
+            initData()
+            openObserve()
+            isLoaded = true
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        isLoaded = false
     }
 
     abstract fun openObserve()

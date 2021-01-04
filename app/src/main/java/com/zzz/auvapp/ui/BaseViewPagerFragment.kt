@@ -27,6 +27,7 @@ abstract class BaseViewPagerFragment :
     }
 
     override fun initView() {
+        // viewpager2 默认offscreenPageLimit为-1，即不会预加载
         binding.viewPager.offscreenPageLimit = 1
         binding.viewPager.adapter = vpAdapter
 

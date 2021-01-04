@@ -3,6 +3,7 @@ package com.zzz.auvapp.ui.notification
 import android.os.Bundle
 import com.zzz.auvapp.R
 import com.zzz.auvapp.databinding.FragmentTestBinding
+import com.zzz.common.ext.loge
 import com.zzz.common.mvvm.BaseVMFragment
 
 /**
@@ -22,6 +23,7 @@ class TestFragment: BaseVMFragment<FragmentTestBinding>(R.layout.fragment_test) 
     override fun initView() {
         val string = arguments?.getString("text")
         binding.tvTest.text = string
+        "${string} fragment initView".loge()
     }
 
     override fun initData() {
