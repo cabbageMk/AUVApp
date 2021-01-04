@@ -1,7 +1,10 @@
 package com.zzz.common.net
 
+import android.os.Build
 import com.zzz.common.BaseApp
+import com.zzz.common.uitls.GlobalUtil
 import com.zzz.common.uitls.LogUtil
+import com.zzz.common.uitls.screenPixel
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -55,6 +58,7 @@ object RequestServiceCreator {
             readTimeout(30L, TimeUnit.SECONDS)
             writeTimeout(10L, TimeUnit.SECONDS)
             addInterceptor(HeadIntercept())
+            addInterceptor(BasicParamsInterceptor())
             addInterceptor(httpLoggingInterceptor)
             cache(cache)
         }
@@ -104,6 +108,28 @@ object RequestServiceCreator {
                         .build()
                 )
             }
+        }
+    }
+
+    // 可以对请求头参数作统一处理，通过下面的`addHeader()`方法
+    class BasicParamsInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response {
+            val originalRequest = chain.request()
+            val originalHttpUrl = originalRequest.url
+            val url = originalHttpUrl.newBuilder().apply {
+                addQueryParameter("udid", GlobalUtil.getDeviceSerial())
+                addQueryParameter("vc", GlobalUtil.eyepetizerVersionCode.toString())
+                addQueryParameter("vn", GlobalUtil.eyepetizerVersionName)
+                addQueryParameter("size", screenPixel())
+                addQueryParameter("deviceModel", GlobalUtil.deviceModel)
+                addQueryParameter("first_channel", GlobalUtil.deviceBrand)
+                addQueryParameter("last_channel", GlobalUtil.deviceBrand)
+                addQueryParameter("system_version_code", "${Build.VERSION.SDK_INT}")
+            }.build()
+            val request = originalRequest.newBuilder().url(url).method(originalRequest.method,
+                originalRequest.body
+            ).build()
+            return chain.proceed(request)
         }
     }
 }

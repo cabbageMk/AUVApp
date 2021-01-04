@@ -1,5 +1,7 @@
 package com.zzz.auvapp.view
 
+import android.content.Context
+import android.util.AttributeSet
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
@@ -14,7 +16,7 @@ import androidx.core.view.marginBottom
  *     version: 1.0
  * </pre>
  */
-class MyFabBehavior : CoordinatorLayout.Behavior<View>() {
+class MyFabBehavior(context: Context, attrs: AttributeSet) : CoordinatorLayout.Behavior<View>(context, attrs) {
     //动画是否在进行
     private var hide = false
 

@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.zzz.auvapp.logic.Repository
 import com.zzz.auvapp.logic.model.HomePageRecommend
-import com.zzz.auvapp.logic.model.Item
 import com.zzz.auvapp.logic.network.EyeService
 import com.zzz.common.mvvm.BaseViewModel
 
@@ -22,7 +21,7 @@ class RecommendHomeViewModel : BaseViewModel() {
 
     private var requestUrl = MutableLiveData<String>()
 
-    val dataList = ArrayList<Item>()
+    val dataList = ArrayList<HomePageRecommend.Item>()
 
     fun refresh() {
         requestUrl.value = EyeService.HOMEPAGE_RECOMMEND_URL

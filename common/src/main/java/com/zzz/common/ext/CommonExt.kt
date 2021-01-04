@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.util.TypedValue
 import android.view.View
 import androidx.annotation.RequiresApi
+import com.zzz.common.BaseApp
 
 /**
  * Created by luyao
@@ -62,6 +63,16 @@ fun Context.px2dp(px: Int): Int {
 
 fun View.dp2px(dp: Int): Int {
     val scale = resources.displayMetrics.density
+    return (dp * scale + 0.5f).toInt()
+}
+
+fun View.dp2px(dp: Float): Int {
+    val scale = resources.displayMetrics.density
+    return (dp * scale + 0.5f).toInt()
+}
+
+fun dp2px(dp: Float): Int {
+    val scale = BaseApp.context.resources.displayMetrics.density
     return (dp * scale + 0.5f).toInt()
 }
 
