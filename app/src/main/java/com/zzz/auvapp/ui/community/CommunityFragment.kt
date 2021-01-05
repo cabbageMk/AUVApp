@@ -8,6 +8,7 @@ import com.zzz.auvapp.logic.model.TabEntity
 import com.zzz.auvapp.ui.BaseViewPagerFragment
 import com.zzz.auvapp.ui.notification.TestFragment
 import com.zzz.common.BaseApp
+import com.zzz.common.ext.gone
 
 class CommunityFragment: BaseViewPagerFragment() {
     override val createTitles = ArrayList<CustomTabEntity>().apply {
@@ -24,7 +25,7 @@ class CommunityFragment: BaseViewPagerFragment() {
 
     override fun initView() {
         super.initView()
-        binding.fragmentBaseViewpagerBar.ivDrawer.visibility = View.GONE
+        binding.fragmentBaseViewpagerBar.ivDrawer.gone()
     }
 
     override fun initData() {

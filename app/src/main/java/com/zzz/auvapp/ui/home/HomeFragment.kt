@@ -6,11 +6,13 @@ import com.flyco.tablayout.listener.CustomTabEntity
 import com.zzz.auvapp.R
 import com.zzz.auvapp.logic.model.TabEntity
 import com.zzz.auvapp.ui.BaseViewPagerFragment
+import com.zzz.auvapp.ui.home.daily.HomeDailyFragment
 import com.zzz.auvapp.ui.home.discovery.HomeDiscoveryFragment
 import com.zzz.auvapp.ui.home.recommend.RecommendHomeFragment
 import com.zzz.auvapp.ui.main.MainActivity
 import com.zzz.auvapp.ui.notification.TestFragment
 import com.zzz.common.BaseApp
+import com.zzz.common.ext.visible
 
 class HomeFragment(): BaseViewPagerFragment() {
     override val createTitles = ArrayList<CustomTabEntity>().apply {
@@ -21,7 +23,7 @@ class HomeFragment(): BaseViewPagerFragment() {
     override val createFragments: Array<Fragment>
         get() = arrayOf(
             HomeDiscoveryFragment(),
-            RecommendHomeFragment(), TestFragment.newInstance(BaseApp.context.getString(R.string.daily)))
+            RecommendHomeFragment(), HomeDailyFragment())
 
     override fun openObserve() {
         super.openObserve()
@@ -30,7 +32,7 @@ class HomeFragment(): BaseViewPagerFragment() {
 
     override fun initView() {
         super.initView()
-        binding.fragmentBaseViewpagerBar.ivDrawer.visibility = View.VISIBLE
+        binding.fragmentBaseViewpagerBar.ivDrawer.visible()
         binding.fragmentBaseViewpagerBar.ivDrawer.setOnClickListener {
             if (activity is MainActivity) {
                 (activity as MainActivity).openDrawer()

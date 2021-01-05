@@ -121,7 +121,8 @@ class HomeDiscoveryAdapter(
             }
             is HorizontalScrollCardViewHolder -> {
                 holder.bannerViewPager.run {
-                    isAutoLoop(false)
+                    addBannerLifecycleObserver(fragment)
+                    isAutoLoop(true)
                     setBannerRound(dp2px(4f).toFloat())
                     setAdapter(MyBannerAdapter(item.data.itemList), true)
                 }

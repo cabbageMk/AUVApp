@@ -9,7 +9,7 @@ package com.zzz.auvapp.logic.model
  *     version: 1.0
  * </pre>
  */
-data class HomePageDiscovery(
+data class HomePageDaily(
     val adExist: Boolean,
     val count: Int,
     val itemList: List<Item>,
@@ -27,45 +27,84 @@ data class HomePageDiscovery(
     )
 
     data class Data(
-        val actionUrl: String,
-        val ad: Boolean,
+        val actionUrl: Any,
         val adTrack: Any,
+        val backgroundImage: String,
+        val bannerList: List<Banner>,
+        val content: Content,
+        val dataType: String,
+        val follow: Any,
+        val header: Header,
+        val headerType: String,
+        val id: Int,
+        val rightText: String,
+        val startTime: Long,
+        val subTitle: Any,
+        val text: String,
+        val titleList: List<String>,
+        val type: String
+    )
+
+    data class Banner(
+        val background_image: String,
+        val link: String,
+        val poster_image: String,
+        val tag_name: String,
+        val title: String
+    )
+
+    data class Content(
+        val adIndex: Int,
+        val `data`: DataX,
+        val id: Int,
+        val tag: Any,
+        val trackingData: Any,
+        val type: String
+    )
+
+    data class Header(
+        val actionUrl: String,
+        val cover: Any,
+        val description: String,
+        val font: Any,
+        val icon: String,
+        val iconType: String,
+        val id: Int,
+        val label: Any,
+        val labelList: Any,
+        val rightText: Any,
+        val showHateVideo: Boolean,
+        val subTitle: Any,
+        val subTitleFont: Any,
+        val textAlign: String,
+        val time: Long,
+        val title: String
+    )
+
+    data class DataX(
+        val ad: Boolean,
+        val adTrack: List<Any>,
         val author: Author,
-        val content: HomePageRecommend.Content,
         val brandWebsiteInfo: Any,
         val campaign: Any,
         val category: String,
         val collected: Boolean,
         val consumption: Consumption,
-        val count: Int,
         val cover: Cover,
         val dataType: String,
         val date: Long,
         val description: String,
         val descriptionEditor: String,
-        val descriptionPgc: Any,
+        val descriptionPgc: String,
         val duration: Int,
-        val expert: Boolean,
         val favoriteAdTrack: Any,
-        val follow: Any,
-        val footer: Any,
-        val haveReward: Boolean,
-        val header: Header,
-        val icon: String,
-        val iconType: String,
         val id: Int,
         val idx: Int,
         val ifLimitVideo: Boolean,
-        val ifNewest: Boolean,
-        val ifPgc: Boolean,
-        val ifShowNotificationIcon: Boolean,
-        val itemList: ArrayList<ItemX>,
-        val label: LabelXX?,
+        val label: Any,
         val labelList: List<Any>,
         val lastViewTime: Any,
         val library: String,
-        val medalIcon: Boolean,
-        val newestEndTime: Any,
         val playInfo: List<PlayInfo>,
         val playUrl: String,
         val played: Boolean,
@@ -76,31 +115,22 @@ data class HomePageDiscovery(
         val recallSource: Any,
         val recall_source: Any,
         val releaseTime: Long,
-        val remark: String,
+        val remark: Any,
         val resourceType: String,
-        val rightText: String,
         val searchWeight: Int,
         val shareAdTrack: Any,
-        val slogan: Any,
+        val slogan: String,
         val src: Any,
-        val subTitle: Any,
         val subtitles: List<Any>,
-        val switchStatus: Boolean,
         val tags: List<Tag>,
-        val text: String,
-        val thumbPlayUrl: Any,
+        val thumbPlayUrl: String,
         val title: String,
-        val titlePgc: Any,
+        val titlePgc: String,
         val type: String,
-        val image: String,
-        val uid: Int,
         val videoPosterBean: VideoPosterBean,
         val waterMarks: Any,
         val webAdTrack: Any,
-        val webUrl: WebUrl,
-        val detail: HomePageRecommend.AutoPlayVideoAdDetail?,
-        val backgroundImage: String,
-        val titleList: List<String>
+        val webUrl: WebUrl
     )
 
     data class Author(
@@ -133,32 +163,6 @@ data class HomePageDiscovery(
         val feed: String,
         val homepage: String,
         val sharing: Any
-    )
-
-    data class Header(
-        val actionUrl: String,
-        val cover: Any,
-        val font: String,
-        val id: Int,
-        val label: Any,
-        val labelList: Any,
-        val rightText: String,
-        val subTitle: Any,
-        val subTitleFont: Any,
-        val textAlign: String,
-        val title: String,
-        val icon: String,
-        val description: String
-    )
-    data class LabelXX(val actionUrl: String?, val text: String?, val card: String, val detail: Any?)
-
-    data class ItemX(
-        val adIndex: Int,
-        val `data`: DataX,
-        val id: Int,
-        val tag: Any,
-        val trackingData: Any,
-        val type: String
     )
 
     data class PlayInfo(
@@ -214,48 +218,6 @@ data class HomePageDiscovery(
         val itemId: Int,
         val itemType: String,
         val shielded: Boolean
-    )
-
-    data class DataX(
-        val actionUrl: String,
-        val adTrack: List<Any>,
-        val autoPlay: Boolean,
-        val dataType: String,
-        val description: String,
-        val header: HeaderX,
-        val id: Int,
-        val image: String,
-        val label: Label,
-        val labelList: List<LabelX>,
-        val shade: Boolean,
-        val title: String
-    )
-
-    data class HeaderX(
-        val actionUrl: Any,
-        val cover: Any,
-        val description: Any,
-        val font: Any,
-        val icon: Any,
-        val id: Int,
-        val label: Any,
-        val labelList: Any,
-        val rightText: Any,
-        val subTitle: Any,
-        val subTitleFont: Any,
-        val textAlign: String,
-        val title: Any
-    )
-
-    data class Label(
-        val card: String,
-        val detail: Any,
-        val text: String
-    )
-
-    data class LabelX(
-        val actionUrl: Any,
-        val text: String
     )
 
     data class Url(

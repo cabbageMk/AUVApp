@@ -1,5 +1,6 @@
 package com.zzz.auvapp.logic.network
 
+import com.zzz.auvapp.logic.model.HomePageDaily
 import com.zzz.auvapp.logic.model.HomePageDiscovery
 import com.zzz.auvapp.logic.model.HomePageRecommend
 import com.zzz.common.net.RequestServiceCreator
@@ -31,6 +32,12 @@ interface EyeService {
     @GET
     fun getHomePageDiscovery(@Url url: String): Call<HomePageDiscovery>
 
+    /**
+     * 首页-日报列表
+     */
+    @GET
+    fun getHomePageDaily(@Url url: String): Call<HomePageDiscovery>
+
     companion object {
 
         /**
@@ -43,5 +50,10 @@ interface EyeService {
          * 首页-发现列表
          */
         const val HOMEPAGE_DISCOVERY_URL = "${RequestServiceCreator.BASE_URL}api/v7/index/tab/discovery"
+
+        /**
+         * 首页-日报列表
+         */
+        const val HOMEPAGE_DAILY_URL = "${RequestServiceCreator.BASE_URL}api/v5/index/tab/feed"
     }
 }

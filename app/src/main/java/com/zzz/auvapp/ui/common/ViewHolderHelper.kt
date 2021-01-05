@@ -9,6 +9,7 @@ import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer
 import com.youth.banner.Banner
 import com.youth.banner.adapter.BannerImageAdapter
 import com.zzz.auvapp.R
+import com.zzz.auvapp.logic.model.HomePageDaily
 import com.zzz.auvapp.logic.model.HomePageDiscovery
 import com.zzz.auvapp.logic.model.HomePageRecommend
 import com.zzz.auvapp.ui.common.Const.ItemViewType.AUTO_PLAY_VIDEO_AD
@@ -49,6 +50,10 @@ object RecyclerViewHelper {
     }
 
     fun getItemViewType(item: HomePageDiscovery.Item): Int {
+        return if (item.type == "textCard") getTextCardType(item.data.type) else getItemViewType(item.type, item.data.dataType)
+    }
+
+    fun getItemViewType(item: HomePageDaily.Item): Int {
         return if (item.type == "textCard") getTextCardType(item.data.type) else getItemViewType(item.type, item.data.dataType)
     }
 
@@ -183,7 +188,6 @@ object RecyclerViewHelper {
 
         else -> EmptyViewHolder(View(parent.context))
     }
-
 }
 
 /**

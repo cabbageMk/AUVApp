@@ -7,6 +7,7 @@ import com.zzz.auvapp.R
 import com.zzz.auvapp.logic.model.TabEntity
 import com.zzz.auvapp.ui.BaseViewPagerFragment
 import com.zzz.common.BaseApp
+import com.zzz.common.ext.gone
 
 class NotificationFragment: BaseViewPagerFragment() {
 
@@ -26,7 +27,7 @@ class NotificationFragment: BaseViewPagerFragment() {
 
     override fun initView() {
         super.initView()
-        binding.fragmentBaseViewpagerBar.ivDrawer.visibility = View.GONE
+        binding.fragmentBaseViewpagerBar.ivDrawer.gone()
     }
 
     override fun initData() {

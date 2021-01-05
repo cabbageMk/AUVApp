@@ -35,6 +35,15 @@ object Repository {
         }
     }
 
+    fun getHomeDaily(url: String) = fire(Dispatchers.IO) {
+        val homeDaily = EyeNetWork.getHomeDaily(url)
+        if (homeDaily.count > 0) {
+            Result.success(homeDaily)
+        } else {
+            Result.failure(RuntimeException("homeDaily response data is empty"))
+        }
+    }
+
     private fun <T> fire(context: CoroutineContext, block: suspend () -> Result<T>) =
         liveData<Result<T>>(context) {
             val result = try {
