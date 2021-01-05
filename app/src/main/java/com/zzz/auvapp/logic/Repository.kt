@@ -22,7 +22,16 @@ object Repository {
         if (homeRecommoned.count > 0) {
             Result.success(homeRecommoned)
         } else {
-            Result.failure(RuntimeException("response data is empty"))
+            Result.failure(RuntimeException("homeRecommoned response data is empty"))
+        }
+    }
+
+    fun getHomeDiscovery(url: String) = fire(Dispatchers.IO) {
+        val homeDiscovery = EyeNetWork.getHomeDiscovery(url)
+        if (homeDiscovery.count > 0) {
+            Result.success(homeDiscovery)
+        } else {
+            Result.failure(RuntimeException("homeDiscovery response data is empty"))
         }
     }
 

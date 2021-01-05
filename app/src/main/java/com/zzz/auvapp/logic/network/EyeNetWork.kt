@@ -19,4 +19,6 @@ object EyeNetWork {
 
     suspend fun getHomeRecommoned(url: String) = eyeService.getHomePageRecommend(url).await()
 
+    suspend fun getHomeDiscovery(url: String) = eyeService.getHomePageDiscovery(url).await()
+
 }

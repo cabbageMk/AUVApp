@@ -1,5 +1,6 @@
 package com.zzz.auvapp.logic.network
 
+import com.zzz.auvapp.logic.model.HomePageDiscovery
 import com.zzz.auvapp.logic.model.HomePageRecommend
 import com.zzz.common.net.RequestServiceCreator
 import retrofit2.Call
@@ -24,6 +25,12 @@ interface EyeService {
     @GET
     fun getHomePageRecommend(@Url url: String): Call<HomePageRecommend>
 
+    /**
+     * 首页-发现列表
+     */
+    @GET
+    fun getHomePageDiscovery(@Url url: String): Call<HomePageDiscovery>
+
     companion object {
 
         /**
@@ -31,5 +38,10 @@ interface EyeService {
          */
         const val HOMEPAGE_RECOMMEND_URL =
             "${RequestServiceCreator.BASE_URL}api/v5/index/tab/allRec?page=0"
+
+        /**
+         * 首页-发现列表
+         */
+        const val HOMEPAGE_DISCOVERY_URL = "${RequestServiceCreator.BASE_URL}api/v7/index/tab/discovery"
     }
 }

@@ -7,7 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer
 import com.youth.banner.Banner
+import com.youth.banner.adapter.BannerImageAdapter
 import com.zzz.auvapp.R
+import com.zzz.auvapp.logic.model.HomePageDiscovery
 import com.zzz.auvapp.logic.model.HomePageRecommend
 import com.zzz.auvapp.ui.common.Const.ItemViewType.AUTO_PLAY_VIDEO_AD
 import com.zzz.auvapp.ui.common.Const.ItemViewType.BANNER
@@ -28,6 +30,7 @@ import com.zzz.auvapp.ui.common.Const.ItemViewType.TOPIC_BRIEFCARD
 import com.zzz.auvapp.ui.common.Const.ItemViewType.UGC_SELECTED_CARD_COLLECTION
 import com.zzz.auvapp.ui.common.Const.ItemViewType.UNKNOWN
 import com.zzz.auvapp.ui.common.Const.ItemViewType.VIDEO_SMALL_CARD
+import com.zzz.auvapp.ui.home.discovery.MyBannerAdapter
 import com.zzz.common.ext.inflate
 
 /**
@@ -42,6 +45,10 @@ import com.zzz.common.ext.inflate
 object RecyclerViewHelper {
 
     fun getItemViewType(item: HomePageRecommend.Item): Int {
+        return if (item.type == "textCard") getTextCardType(item.data.type) else getItemViewType(item.type, item.data.dataType)
+    }
+
+    fun getItemViewType(item: HomePageDiscovery.Item): Int {
         return if (item.type == "textCard") getTextCardType(item.data.type) else getItemViewType(item.type, item.data.dataType)
     }
 
@@ -220,7 +227,7 @@ class TextCardViewFooter3ViewHolder(view: View) : RecyclerView.ViewHolder(view) 
 
 class HorizontalScrollCardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     // todo
-//    val bannerViewPager: Banner<Discovery.ItemX, DiscoveryAdapter.HorizontalScrollCardAdapter.ViewHolder> = view.findViewById(R.id.bannerViewPager)
+    val bannerViewPager: Banner<HomePageDiscovery.ItemX, MyBannerAdapter> = view.findViewById(R.id.bannerViewPager)
 }
 
 class SpecialSquareCardCollectionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
