@@ -230,7 +230,6 @@ class TextCardViewFooter3ViewHolder(view: View) : RecyclerView.ViewHolder(view) 
 }
 
 class HorizontalScrollCardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    // todo
     val bannerViewPager: Banner<HomePageDiscovery.ItemX, MyBannerAdapter> = view.findViewById(R.id.bannerViewPager)
 }
 

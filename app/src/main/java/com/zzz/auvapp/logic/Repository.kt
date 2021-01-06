@@ -44,6 +44,15 @@ object Repository {
         }
     }
 
+    fun getCommunityRec(url: String) = fire(Dispatchers.IO) {
+        val communityRec = EyeNetWork.getCommunityRec(url)
+        if(communityRec.count > 0) {
+            Result.success(communityRec)
+        } else {
+            Result.failure(RuntimeException("communityRec response data is empty"))
+        }
+    }
+
     private fun <T> fire(context: CoroutineContext, block: suspend () -> Result<T>) =
         liveData<Result<T>>(context) {
             val result = try {

@@ -22,4 +22,7 @@ object EyeNetWork {
     suspend fun getHomeDiscovery(url: String) = eyeService.getHomePageDiscovery(url).await()
 
     suspend fun getHomeDaily(url: String) = eyeService.getHomePageDaily(url).await()
+
+    suspend fun getCommunityRec(url: String) = eyeService.getCommunityRec(url).await()
+
 }

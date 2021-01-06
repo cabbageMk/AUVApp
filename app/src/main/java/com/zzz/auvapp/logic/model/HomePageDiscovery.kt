@@ -228,7 +228,9 @@ data class HomePageDiscovery(
         val label: Label,
         val labelList: List<LabelX>,
         val shade: Boolean,
-        val title: String
+        val title: String,
+        val bgPicture: String,
+        val subTitle: String
     )
 
     data class HeaderX(
