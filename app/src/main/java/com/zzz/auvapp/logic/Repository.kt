@@ -53,6 +53,15 @@ object Repository {
         }
     }
 
+    fun getCommunityFollow(url: String) = fire(Dispatchers.IO) {
+        val communityFollow = EyeNetWork.getCommunityFollow(url)
+        if (communityFollow.count > 0) {
+            Result.success(communityFollow)
+        } else {
+            Result.failure(RuntimeException("communityFollow response data is empty"))
+        }
+    }
+
     private fun <T> fire(context: CoroutineContext, block: suspend () -> Result<T>) =
         liveData<Result<T>>(context) {
             val result = try {

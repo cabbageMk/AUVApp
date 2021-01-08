@@ -14,6 +14,8 @@ object Const {
     object ItemViewType {
         const val UNKNOWN = -1              //未知类型，使用EmptyViewHolder容错处理。
 
+        const val CUSTOM_HEADER = 0         //自定义头部类型。
+
         const val TEXT_CARD_HEADER1 = 1
 
         const val TEXT_CARD_HEADER2 = 2

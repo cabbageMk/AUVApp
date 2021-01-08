@@ -1,9 +1,6 @@
 package com.zzz.auvapp.logic.network
 
-import com.zzz.auvapp.logic.model.CommunityRecommend
-import com.zzz.auvapp.logic.model.HomePageDaily
-import com.zzz.auvapp.logic.model.HomePageDiscovery
-import com.zzz.auvapp.logic.model.HomePageRecommend
+import com.zzz.auvapp.logic.model.*
 import com.zzz.common.net.RequestServiceCreator
 import retrofit2.Call
 import retrofit2.http.GET
@@ -42,6 +39,9 @@ interface EyeService {
     @GET
     fun getCommunityRec(@Url url: String): Call<CommunityRecommend>
 
+    @GET
+    fun getCommunityFollow(@Url url: String): Call<Follow>
+
     companion object {
 
         /**
@@ -64,5 +64,10 @@ interface EyeService {
          * 首页-日报列表
          */
         const val COMMUNITY_RECOMMEND_URL = "${RequestServiceCreator.BASE_URL}api/v7/community/tab/rec"
+
+        /**
+         * 社区-关注列表
+         */
+        const val FOLLOW_URL = "${RequestServiceCreator.BASE_URL}api/v6/community/tab/follow"
     }
 }

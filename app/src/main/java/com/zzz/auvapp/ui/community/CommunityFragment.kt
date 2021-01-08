@@ -6,6 +6,7 @@ import com.flyco.tablayout.listener.CustomTabEntity
 import com.zzz.auvapp.R
 import com.zzz.auvapp.logic.model.TabEntity
 import com.zzz.auvapp.ui.BaseViewPagerFragment
+import com.zzz.auvapp.ui.community.follow.CommunityFollowFragment
 import com.zzz.auvapp.ui.community.recommend.CommunityRecommendFragment
 import com.zzz.auvapp.ui.notification.TestFragment
 import com.zzz.common.BaseApp
@@ -17,7 +18,7 @@ class CommunityFragment: BaseViewPagerFragment() {
         add(TabEntity(BaseApp.context.getString(R.string.follow)))
     }
     override val createFragments: Array<Fragment>
-        get() = arrayOf(CommunityRecommendFragment(), TestFragment.newInstance(BaseApp.context.getString(R.string.follow)))
+        get() = arrayOf(CommunityRecommendFragment(), CommunityFollowFragment())
 
     override fun openObserve() {
         super.openObserve()

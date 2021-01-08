@@ -3,6 +3,7 @@ package com.zzz.common.ext
 import android.content.Context
 import android.widget.Toast
 import androidx.annotation.StringRes
+import com.zzz.common.BaseApp
 
 /**
  * Created by luyao
@@ -28,11 +29,11 @@ fun Context.longToast(@StringRes id: Int) {
     toast(id, Toast.LENGTH_LONG)
 }
 
-fun Any.toast(context: Context, content: String, duration: Int = Toast.LENGTH_SHORT) {
+fun Any.toast(content: String, context: Context = BaseApp.context, duration: Int = Toast.LENGTH_SHORT) {
     context.toast(content, duration)
 }
 
-fun Any.toast(context: Context, @StringRes id: Int, duration: Int=Toast.LENGTH_SHORT) {
+fun Any.toast(@StringRes id: Int, context: Context = BaseApp.context, duration: Int=Toast.LENGTH_SHORT) {
     context.toast(id, duration)
 }
 
