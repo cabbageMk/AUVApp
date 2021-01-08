@@ -70,7 +70,7 @@ class CommunityFollowFragment : BaseVMFragment<FragmentRefreshBinding>(R.layout.
 
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.setHasFixedSize(true)
-
+        binding.recyclerView.addOnScrollListener(FollowScrollListener(R.id.videoPlayer))
         adapter = FollowAdapter(this, viewModel.dataList)
         binding.recyclerView.adapter = adapter
 

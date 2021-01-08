@@ -5,11 +5,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.shuyu.gsyvideoplayer.GSYVideoManager
+import com.shuyu.gsyvideoplayer.listener.GSYSampleCallBack
 import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer
 import com.zzz.auvapp.R
 import com.zzz.auvapp.logic.model.Follow
 import com.zzz.auvapp.ui.common.Const
 import com.zzz.auvapp.ui.common.EmptyViewHolder
+import com.zzz.auvapp.ui.home.recommend.HomeRecommendAdapter
+import com.zzz.auvapp.ui.home.recommend.HomeRecommendAdapter.Companion.TAG
 import com.zzz.auvapp.util.DateUtil
 import com.zzz.auvapp.util.conversionVideoDuration
 import com.zzz.auvapp.util.load
@@ -70,7 +74,27 @@ class FollowAdapter(val fragment: CommunityFollowFragment, val dataList: ArrayLi
                         tvReplyCount.text = consumption.replyCount.toString()
                         tvVideoDuration.visible()    //视频播放后，复用tvVideoDuration直接隐藏了
                         tvVideoDuration.text = duration.conversionVideoDuration()
+                        HomeRecommendAdapter.startAutoPlay(fragment.activity!!, videoPlayer, position, playUrl, cover.feed, TAG, object : GSYSampleCallBack() {
+                            override fun onPrepared(url: String?, vararg objects: Any?) {
+                                super.onPrepared(url, *objects)
+                                tvVideoDuration.gone()
+                                GSYVideoManager.instance().isNeedMute = true
+                            }
 
+                            override fun onClickResume(url: String?, vararg objects: Any?) {
+                                super.onClickResume(url, *objects)
+                                tvVideoDuration.gone()
+                            }
+
+                            override fun onClickBlank(url: String?, vararg objects: Any?) {
+                                super.onClickBlank(url, *objects)
+                                holder.tvVideoDuration.visible()
+//                                NewDetailActivity.start(
+//                                    fragment.activity,
+//                                    NewDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author!!, webUrl)
+//                                )
+                            }
+                        })
 
                     }
                 }
