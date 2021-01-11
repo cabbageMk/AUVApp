@@ -23,7 +23,7 @@ class HomeDiscoveryFragment: BaseVMFragment<FragmentRefreshBinding>(R.layout.fra
     private lateinit var adapter: HomeDiscoveryAdapter
 
     override fun openObserve() {
-        viewModel.requestUrlLiveData.observe(this) {
+        viewModel.requestUrlLiveData.observe(viewLifecycleOwner) {
             val result = it.getOrNull()
             if (result != null) {
                 if (result.itemList.isNullOrEmpty() && viewModel.dataList.isEmpty()) {

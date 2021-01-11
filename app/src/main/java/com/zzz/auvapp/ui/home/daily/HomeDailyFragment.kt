@@ -23,7 +23,7 @@ class HomeDailyFragment: BaseVMFragment<FragmentRefreshBinding>(R.layout.fragmen
     private lateinit var adapter: DailyAdapter
 
     override fun openObserve() {
-        viewModel.requestUrlLiveData.observe(this) {
+        viewModel.requestUrlLiveData.observe(viewLifecycleOwner) {
             val result = it.getOrNull()
             if (result != null) {
                 if (result.itemList.isNullOrEmpty() && viewModel.dataList.isEmpty()) {

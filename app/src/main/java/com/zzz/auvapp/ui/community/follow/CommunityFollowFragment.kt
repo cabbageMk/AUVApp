@@ -22,7 +22,7 @@ class CommunityFollowFragment : BaseVMFragment<FragmentRefreshBinding>(R.layout.
     private lateinit var adapter: FollowAdapter
 
     override fun openObserve() {
-        viewModel.requestLiveData.observe(this) {
+        viewModel.requestLiveData.observe(viewLifecycleOwner) {
             val result = it.getOrNull()
             if (result != null) {
                 if (result.itemList.isNullOrEmpty() && viewModel.dataList.isEmpty()) {

@@ -21,7 +21,7 @@ class RecommendHomeFragment: BaseVMFragment<FragmentRefreshBinding>(R.layout.fra
     private lateinit var adapter: HomeRecommendAdapter
 
     override fun openObserve() {
-        viewModel.dataListLiveData.observe(this) {
+        viewModel.dataListLiveData.observe(viewLifecycleOwner) {
             val result = it.getOrNull()
             hideLoadingView()
             if (result != null) {
