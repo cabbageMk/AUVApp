@@ -6,6 +6,7 @@ import com.flyco.tablayout.listener.CustomTabEntity
 import com.zzz.auvapp.R
 import com.zzz.auvapp.logic.model.TabEntity
 import com.zzz.auvapp.ui.BaseViewPagerFragment
+import com.zzz.auvapp.ui.notification.push.PushFragment
 import com.zzz.common.BaseApp
 import com.zzz.common.ext.gone
 
@@ -17,7 +18,7 @@ class NotificationFragment: BaseViewPagerFragment() {
         add(TabEntity(BaseApp.context.getString(R.string.inbox)))
     }
     override val createFragments: Array<Fragment>
-        get() = arrayOf(TestFragment.newInstance(BaseApp.context.getString(R.string.push)),
+        get() = arrayOf(PushFragment(),
             TestFragment.newInstance(BaseApp.context.getString(R.string.interaction)),TestFragment.newInstance(BaseApp.context.getString(R.string.inbox)))
 
     override fun openObserve() {

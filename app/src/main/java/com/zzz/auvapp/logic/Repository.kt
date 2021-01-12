@@ -62,6 +62,15 @@ object Repository {
         }
     }
 
+    fun getPushMessage(url: String) = fire(Dispatchers.IO) {
+        val pushMessage = EyeNetWork.getPushMessage(url)
+        if (pushMessage.messageList.isNullOrEmpty()) {
+            Result.failure(RuntimeException("pushMessage response data is empty"))
+        } else {
+            Result.success(pushMessage)
+        }
+    }
+
     private fun <T> fire(context: CoroutineContext, block: suspend () -> Result<T>) =
         liveData<Result<T>>(context) {
             val result = try {

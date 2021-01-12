@@ -26,4 +26,6 @@ object EyeNetWork {
     suspend fun getCommunityRec(url: String) = eyeService.getCommunityRec(url).await()
 
     suspend fun getCommunityFollow(url: String) = eyeService.getCommunityFollow(url).await()
+
+    suspend fun getPushMessage(url: String) = eyeService.getPushMessage(url).await()
 }

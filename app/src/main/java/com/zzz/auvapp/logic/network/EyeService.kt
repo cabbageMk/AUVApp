@@ -42,6 +42,9 @@ interface EyeService {
     @GET
     fun getCommunityFollow(@Url url: String): Call<Follow>
 
+    @GET
+    fun getPushMessage(@Url url: String): Call<PushMessage>
+
     companion object {
 
         /**
@@ -69,5 +72,10 @@ interface EyeService {
          * 社区-关注列表
          */
         const val FOLLOW_URL = "${RequestServiceCreator.BASE_URL}api/v6/community/tab/follow"
+
+        /**
+         * 通知-推送列表
+         */
+        const val PUSHMESSAGE_URL = "${RequestServiceCreator.BASE_URL}api/v3/messages"
     }
 }
