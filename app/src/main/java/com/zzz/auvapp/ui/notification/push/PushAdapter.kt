@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zzz.auvapp.R
 import com.zzz.auvapp.logic.model.PushMessage
+import com.zzz.auvapp.util.ActionUrlUtil
 import com.zzz.auvapp.util.DateUtil
 import com.zzz.auvapp.util.load
 import com.zzz.common.ext.inflate
@@ -26,7 +27,7 @@ class PushAdapter(val fragment: PushFragment, val dataList: ArrayList<PushMessag
         val holder = PushViewHolder(R.layout.item_notification_push.inflate(parent))
         holder.itemView.setOnClickListener {
             val item = dataList[holder.adapterPosition]
-//            ActionUrlUtil.process(fragment, item.actionUrl, item.title)
+            fragment.activity?.let { it1 -> ActionUrlUtil.process(it1, item.actionUrl, item.title) }
         }
         return holder
     }

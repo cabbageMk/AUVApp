@@ -2,7 +2,13 @@ package com.zzz.auvapp.util
 
 import android.graphics.drawable.Drawable
 import android.widget.TextView
+import com.tencent.sonic.sdk.SonicConfig
+import com.tencent.sonic.sdk.SonicEngine
+import com.tencent.sonic.sdk.SonicSessionConfig
+import com.zzz.auvapp.ui.tencent.SonicRuntimeImpl
+import com.zzz.common.BaseApp
 import com.zzz.common.ext.dp2px
+import com.zzz.common.ext.loge
 
 /**
  * <pre>
@@ -46,4 +52,19 @@ fun TextView.setDrawable(drawable: Drawable?, iconWidth: Float? = null, iconHeig
         3 -> setCompoundDrawables(null, null, null, drawable)
         else -> throw NoSuchMethodError()
     }
+}
+
+/**
+ * VasSonic预加载session。
+ *
+ * @param CharSequence 预加载url
+ */
+fun CharSequence.preCreateSession(): Boolean {
+    if (!SonicEngine.isGetInstanceAllowed()) {
+        SonicEngine.createInstance(SonicRuntimeImpl(BaseApp.context), SonicConfig.Builder().build())
+    }
+    val sessionConfigBuilder = SonicSessionConfig.Builder().apply { setSupportLocalServer(true) }
+    val preloadSuccess = SonicEngine.getInstance().preCreateSession(this.toString(), sessionConfigBuilder.build())
+    ("preCreateSession():::${this}\t:${if (preloadSuccess) "Preload start up success!" else "Preload start up fail!"}").loge()
+    return preloadSuccess
 }

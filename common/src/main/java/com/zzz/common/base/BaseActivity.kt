@@ -167,6 +167,14 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    fun setRightOnClick(l: View.OnClickListener) {
+        if (imgRight.visibility == View.VISIBLE) {
+            imgRight.setOnClickListener ( l )
+        } else if (txtRight.visibility == View.VISIBLE) {
+            txtRight.setOnClickListener ( l )
+        }
+    }
+
     /**
      * 设置右边文字
      *
