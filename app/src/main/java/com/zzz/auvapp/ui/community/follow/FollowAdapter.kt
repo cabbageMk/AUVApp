@@ -14,6 +14,7 @@ import com.zzz.auvapp.ui.common.Const
 import com.zzz.auvapp.ui.common.EmptyViewHolder
 import com.zzz.auvapp.ui.home.recommend.HomeRecommendAdapter
 import com.zzz.auvapp.ui.home.recommend.HomeRecommendAdapter.Companion.TAG
+import com.zzz.auvapp.ui.videodetail.VideoDetailActivity
 import com.zzz.auvapp.util.DateUtil
 import com.zzz.auvapp.util.conversionVideoDuration
 import com.zzz.auvapp.util.load
@@ -89,10 +90,10 @@ class FollowAdapter(val fragment: CommunityFollowFragment, val dataList: ArrayLi
                             override fun onClickBlank(url: String?, vararg objects: Any?) {
                                 super.onClickBlank(url, *objects)
                                 holder.tvVideoDuration.visible()
-//                                NewDetailActivity.start(
-//                                    fragment.activity,
-//                                    NewDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author!!, webUrl)
-//                                )
+                                VideoDetailActivity.start(
+                                    fragment.activity!!,
+                                    VideoDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author!!, webUrl)
+                                )
                             }
                         })
 

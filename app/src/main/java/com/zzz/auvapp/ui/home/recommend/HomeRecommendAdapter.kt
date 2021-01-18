@@ -17,6 +17,7 @@ import com.zzz.auvapp.R
 import com.zzz.auvapp.logic.model.HomePageRecommend
 import com.zzz.auvapp.ui.common.*
 import com.zzz.auvapp.ui.home.daily.DailyAdapter
+import com.zzz.auvapp.ui.videodetail.VideoDetailActivity
 import com.zzz.auvapp.util.conversionVideoDuration
 import com.zzz.auvapp.util.load
 import com.zzz.auvapp.util.setOnClickListener
@@ -105,11 +106,11 @@ class HomeRecommendAdapter(val context: Context, val dataList: List<HomePageReco
                     itemView.setOnClickListener {
                         item.data.content.data.run {
                             if (ad || author == null) {
-//                                NewDetailActivity.start(fragment.activity, id)
+                                VideoDetailActivity.start(context as Activity, id)
                             } else {
-//                                NewDetailActivity.start(
-//                                    fragment.activity, NewDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
-//                                )
+                                VideoDetailActivity.start(
+                                    context as Activity, VideoDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
+                                )
                             }
                         }
                     }
@@ -155,9 +156,9 @@ class HomeRecommendAdapter(val context: Context, val dataList: List<HomePageReco
                     }
                     itemView.setOnClickListener {
                         item.data.run {
-//                            NewDetailActivity.start(
-//                                fragment.activity, NewDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
-//                            )
+                            VideoDetailActivity.start(
+                                context as Activity, VideoDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
+                            )
                         }
                     }
                 }

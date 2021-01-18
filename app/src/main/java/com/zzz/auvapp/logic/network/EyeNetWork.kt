@@ -28,4 +28,10 @@ object EyeNetWork {
     suspend fun getCommunityFollow(url: String) = eyeService.getCommunityFollow(url).await()
 
     suspend fun getPushMessage(url: String) = eyeService.getPushMessage(url).await()
+
+    suspend fun getVideoBeanForClient(id: Long) = eyeService.getVideoBeanForClient(id).await()
+
+    suspend fun getVideoRelated(id: Long) = eyeService.getVideoRelated(id).await()
+
+    suspend fun getVideoReplies(url: String) = eyeService.getVideoReplies(url).await()
 }

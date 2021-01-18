@@ -7,6 +7,7 @@ import com.zzz.auvapp.logic.model.HomePageDaily
 import com.zzz.auvapp.logic.model.HomePageDiscovery
 import com.zzz.auvapp.ui.common.*
 import com.zzz.auvapp.ui.home.recommend.HomeRecommendAdapter
+import com.zzz.auvapp.ui.videodetail.VideoDetailActivity
 import com.zzz.auvapp.util.conversionVideoDuration
 import com.zzz.auvapp.util.load
 import com.zzz.auvapp.util.setOnClickListener
@@ -108,11 +109,11 @@ class DailyAdapter(val fragment: HomeDailyFragment, val dataList: ArrayList<Home
                 holder.itemView.setOnClickListener {
                     item.data.content.data.run {
                         if (ad || author == null) {
-//                            NewDetailActivity.start(fragment.activity, id)
+                            VideoDetailActivity.start(fragment.activity!!, id)
                         } else {
-//                            NewDetailActivity.start(
-//                                fragment.activity, NewDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
-//                            )
+                            VideoDetailActivity.start(
+                                fragment.activity!!, VideoDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
+                            )
                         }
                     }
                 }

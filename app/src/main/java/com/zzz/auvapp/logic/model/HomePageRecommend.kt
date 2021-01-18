@@ -21,17 +21,17 @@ data class HomePageRecommend(
         val actionUrl: String,
         val ad: Boolean,
         val adTrack: Any,
-        val author: Author,
+        val author: com.zzz.auvapp.logic.model.Author,
         val backgroundImage: String,
         val autoPlay: Boolean,
         val brandWebsiteInfo: Any,
         val campaign: Any,
         val category: String,
         val collected: Boolean,
-        val consumption: Consumption,
+        val consumption: com.zzz.auvapp.logic.model.Consumption,
         val content: Content,
         val count: Int,
-        val cover: CoverX,
+        val cover: com.zzz.auvapp.logic.model.Cover,
         val dataType: String,
         val date: Long,
         val description: String,
@@ -43,7 +43,7 @@ data class HomePageRecommend(
         val footer: Any,
         val header: Header,
         val icon: String,
-        val id: Int,
+        val id: Long,
         val idx: Int,
         val ifLimitVideo: Boolean,
         val image: String,
@@ -81,7 +81,7 @@ data class HomePageRecommend(
         val videoPosterBean: VideoPosterBeanX,
         val waterMarks: Any,
         val webAdTrack: Any,
-        val webUrl: WebUrlXX,
+        val webUrl: com.zzz.auvapp.logic.model.WebUrl,
         val rightText: String,
         val detail: AutoPlayVideoAdDetail?
     )
@@ -244,13 +244,13 @@ data class HomePageRecommend(
     data class DataX(
         val ad: Boolean,
         val adTrack: List<Any>,
-        val author: AuthorX,
+        val author: com.zzz.auvapp.logic.model.Author,
         val brandWebsiteInfo: Any,
         val campaign: Any,
         val category: String,
         val collected: Boolean,
-        val consumption: ConsumptionX,
-        val cover: Cover,
+        val consumption: com.zzz.auvapp.logic.model.Consumption,
+        val cover: com.zzz.auvapp.logic.model.Cover,
         val dataType: String,
         val date: Long,
         val description: String,
@@ -258,7 +258,7 @@ data class HomePageRecommend(
         val descriptionPgc: Any,
         val duration: Int,
         val favoriteAdTrack: Any,
-        val id: Int,
+        val id: Long,
         val idx: Int,
         val ifLimitVideo: Boolean,
         val label: Any,
@@ -290,7 +290,7 @@ data class HomePageRecommend(
         val videoPosterBean: VideoPosterBean,
         val waterMarks: Any,
         val webAdTrack: Any,
-        val webUrl: WebUrl
+        val webUrl: com.zzz.auvapp.logic.model.WebUrl
     )
 
     data class AuthorX(

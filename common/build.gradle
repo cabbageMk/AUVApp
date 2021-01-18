@@ -63,7 +63,7 @@ dependencies {
     api 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     // recyclerview
-    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'androidx.recyclerview:recyclerview:1.2.0-alpha03'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
 
     // materialdesign
